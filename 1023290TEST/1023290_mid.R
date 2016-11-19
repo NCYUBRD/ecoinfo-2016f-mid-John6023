@@ -1,1 +1,10 @@
 library(data.table)
+library(curl)
+library(MASS)
+setwd('C:/Users/John6023/Documents/demo1006/期中考試/ecoinfo-2016f-mid-John6023/1023290TEST')
+p01 <- fread('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-2016f-mid-John6023\\penghu_env.csv')
+s01 <- fread('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-2016f-mid-John6023\\sample_data.txt')
+X <- 1:10000000
+a <- c(sample(X,10000,replace=FALSE))
+a.list <- list(a.name=a)
+write.matrix(a.list, file = "random10k.csv", sep = ",")
