@@ -50,4 +50,6 @@ write.matrix(s01, file = "sample_data_parsed.csv", sep = ",")
 #b小題
 
 第四題
-i44 <- fread('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-2016f-mid-John6023\\penghu_env.csv', na.strings = c('-9991','-9995','-9996','-9997','-9998','-9999'))
+i44 <- read.csv('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-2016f-mid-John6023\\penghu_env.csv', fileEncoding = "utf8")
+
+summarise(i44, mean(total_cover, na.rm = TRUE))
