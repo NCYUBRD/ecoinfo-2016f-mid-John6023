@@ -51,5 +51,8 @@ write.matrix(s01, file = "sample_data_parsed.csv", sep = ",")
 
 第四題
 i44 <- read.csv('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-2016f-mid-John6023\\penghu_env.csv', fileEncoding = "utf8")
-
+##篩選鋤頭嶼
+filter(i44,island=="鋤頭嶼")
+##鋤頭嶼各項平均
+summarise(filter(i44,island=="鋤頭嶼"), mean(total_cover),mean(C),mean(EC),mean(K),mean(Na),mean(N), na.rm = TRUE)
 summarise(i44, mean(total_cover, na.rm = TRUE))
