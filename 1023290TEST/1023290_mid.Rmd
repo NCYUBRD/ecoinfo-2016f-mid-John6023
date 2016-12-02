@@ -77,10 +77,25 @@ View(s01)
 ```
 s01[, timestamp := as.POSIXct(strptime(yyyymmddhh-1,'%Y%m%d%H'))]
 ```{r}
+##新增年欄位
+```
+s01[, year:= year(timestamp)]
+```{r}
+##新增月欄位
+```
+s01[, month:= month(timestamp)]
+```{r}
+##新增日欄位
+```
+s01[, day:= mday(timestamp)]
+```{r}
 ##輸出成為sample_data_parsed.csv檔案
 ```
 write.matrix(s01, file = "sample_data_parsed.csv", sep = ",")
 ```{r}
 #b小題
 ```
-
+library(dplyr)
+ss01 = s01 %>% summarise_each(funs(mean)) %>%  group_by(month)
+print(ss01, n=12, width =500)
+View(iris)

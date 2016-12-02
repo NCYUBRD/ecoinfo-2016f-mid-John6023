@@ -37,6 +37,14 @@ s01 <- fread('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-20
 ##將 yyyymmddhh 轉成 POSIXct 時間戳記格式，並且新增timestamp欄。
 s01[, timestamp := as.POSIXct(strptime(yyyymmddhh-1,'%Y%m%d%H'))]
 
+##新增年欄位
+s01[, year:= year(timestamp)]
+##新增月欄位
+s01[, month:= month(timestamp)]
+##新增日欄位
+s01[, day:= mday(timestamp)]
+
 ##輸出成為sample_data_parsed.csv檔案
 write.matrix(s01, file = "sample_data_parsed.csv", sep = ",")
 
+#b小題
