@@ -96,6 +96,9 @@ write.matrix(s01, file = "sample_data_parsed.csv", sep = ",")
 #b小題
 ```
 library(dplyr)
+library(tidyr)
 ss01 = s01 %>% summarise_each(funs(mean)) %>%  group_by(month)
 print(ss01, n=12, width =500)
 View(iris)
+mean(TX01)
+tidyr::spread(s01, month, TX01)
