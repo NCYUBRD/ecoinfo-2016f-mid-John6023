@@ -98,6 +98,12 @@ write.matrix(s01, file = "sample_data_parsed.csv", sep = ",")
 library(dplyr)
 library(tidyr)
 ss01 = s01 %>% summarise_each(funs(mean)) %>%  group_by(month)
+
+filter(s01,month==1)
+s14 <- filter(s01,year==2014)
+s14 <- select(s14,TX01,RH01,PP01,month)
+summarise(filter(s14,month==1),mean(TX01),mean(RH01),mean(PP01), na.rm = TRUE)
+summarise(s14,mean(TX01), na.rm = TRUE)
 print(ss01, n=12, width =500)
 View(iris)
 mean(TX01)
@@ -117,5 +123,4 @@ filter(i44,island=="鋤頭嶼")
 ```{r}
 ##鋤頭嶼各項平均
 ```
-
 summarise(filter(i44,island=="鋤頭嶼"), mean(total_cover),mean(C),mean(EC),mean(K),mean(Na),mean(N), na.rm = TRUE)
