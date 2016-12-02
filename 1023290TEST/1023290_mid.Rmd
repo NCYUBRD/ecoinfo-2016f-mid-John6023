@@ -107,7 +107,7 @@ tidyr::spread(s01, month, TX01)
 ##讀檔並解決亂碼問題
 ```
 i44 <- read.csv('C:\\Users\\John6023\\Documents\\demo1006\\期中考試\\ecoinfo-2016f-mid-John6023\\penghu_env.csv', fileEncoding = "utf8")
-i44 <- iconv(i44, "big5", "utf8")
+
 
 summarise(i44, mean(total_cover, na.rm = TRUE))
-select(s01, "鋤頭嶼")
+dplyr::slice(i44,'鋤頭嶼' )
